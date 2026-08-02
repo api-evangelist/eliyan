@@ -1,0 +1,47 @@
+generated: '2026-08-01'
+method: probed
+source: live HTTP probes against eliyan.com and candidate API/docs subdomains
+summary: >-
+  No machine-readable API contract of any kind exists for Eliyan. Eliyan is a fabless
+  semiconductor IP company that licenses chiplet interconnect PHY (NuLink, NuLink-X,
+  NuLink-XD) and NuGear chiplets. Its only web property is a WordPress marketing site
+  at eliyan.com with 18 pages. There is no developer portal, no API documentation, no
+  OpenAPI/Swagger/GraphQL/AsyncAPI/gRPC surface, no MCP server, no A2A agent card, no
+  SDKs, no CLI, and no public GitHub organization. Recorded so a later round does not
+  re-derive this conclusion from scratch.
+result: no-api-surface
+openapi:
+  found: false
+  probed:
+  - {url: 'https://eliyan.com/openapi.json', status: 404}
+  - {url: 'https://eliyan.com/openapi.yaml', status: 404}
+  - {url: 'https://eliyan.com/swagger.json', status: 404}
+  - {url: 'https://eliyan.com/api-docs', status: 404}
+graphql:
+  found: false
+  probed:
+  - {url: 'https://eliyan.com/graphql', status: 404}
+mcp:
+  found: false
+  note: No hosted MCP server referenced in any Eliyan property or in MCP registries.
+a2a:
+  found: false
+  note: >-
+    Both /.well-known/agent-card.json and the legacy /.well-known/agent.json returned
+    404 on eliyan.com. Per the pipeline contract nothing was authored — an agent card
+    is search-only and must never be generated or derived.
+asyncapi:
+  found: false
+  note: No event, streaming, or webhook surface is published.
+subdomains:
+  note: >-
+    api., developer., docs., dev., portal., support., status. and trust..eliyan.com
+    all fail to resolve (no DNS record).
+cms_endpoint:
+  url: https://eliyan.com/wp-json/
+  status: 200
+  counted_as_api: false
+  note: >-
+    The WordPress core REST API is exposed by the marketing site's CMS. It is platform
+    infrastructure, not an Eliyan product API, so it is deliberately NOT registered as
+    an apis[] entry and no OpenAPI pointer was wired from it.
