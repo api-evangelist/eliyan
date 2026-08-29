@@ -11,6 +11,17 @@ description: 'Eliyan Corporation is a fabless semiconductor company in Santa Cla
   operating a public web API; the company publishes no developer portal, API documentation,
   or machine-readable API contract.'
 url: https://raw.githubusercontent.com/api-evangelist/eliyan/refs/heads/main/apis.yml
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 image: https://eliyan.com/wp-content/uploads/2026/04/eliyan-logo.svg
 x-type: company
 x-source: harvest:secondary-market
